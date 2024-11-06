@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:10:42 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/06 20:46:01 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/06 20:51:22 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_handle(const char *str, int index, int argc, va_list *ar)
 	{
 		if (ft_is_specifier(str, index, 'd'))
 			ft_printf_int(&ar);
-		
+		//  adding more {'c', 's', 'p', 'd', 'i', 'u', 'x', 'X'}
 	}
 }
 
