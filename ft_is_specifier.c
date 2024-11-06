@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_int.c                                    :+:      :+:    :+:   */
+/*   ft_is_specifier.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 18:50:48 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/06 20:40:47 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/06 20:45:45 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/06 20:45:56 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-void	ft_printf_int(va_list **args)
+int	ft_is_specifier(const char *s, int index, char c)
 {
-	int i;
-
-	i = va_arg(**args, int);
-	ft_putnbr_fd(i, 1);
+	return (s[index + 1] == (char)c);
 }

@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:10:42 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/06 20:20:55 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/06 20:46:01 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ void	ft_handle(const char *str, int index, int argc, va_list *ar)
 {
 	if (argc)
 	{
-		if (str[index + 1] == 'd')
-		{
+		if (ft_is_specifier(str, index, 'd'))
 			ft_printf_int(&ar);
-		}
+		
 	}
 }
 
@@ -55,7 +54,7 @@ int	main(void)
 {
 	int	r;
 
-	r = ft_printf("the output: %d\n", 16);
+	r = ft_printf("the output: %d is %d %d\n", 16, 25, 89);
 	// printf("ft_printf retuned value: %d\n", r);
 	return (0);
 }
