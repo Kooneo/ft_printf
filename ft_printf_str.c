@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_char.c                                   :+:      :+:    :+:   */
+/*   ft_printf_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 18:58:27 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/07 14:35:24 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/08 17:45:32 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/08 17:47:03 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printf_char(va_list **args)
+void	ft_printf_str(va_list **args)
 {
-	char	c;
+    char	c;
 
 	c = (char )va_arg(**args, int);
 	ft_putchar_fd(c, 1);
