@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 17:45:32 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/08 17:47:03 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/09 13:48:12 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_printf_str(va_list **args)
 {
-    char	c;
+    char	*str;
 
-	c = (char )va_arg(**args, int);
-	ft_putchar_fd(c, 1);
+	str = (char *)va_arg(**args, char *);
+	
 }
