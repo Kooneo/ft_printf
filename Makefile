@@ -17,9 +17,6 @@ $(NAME): $(OFILES) $(LIBFT)
 $(LIBFT):
 	make -C $(LIBFT_PATH) && mv $(LIBFT_PATH)libft.a .
 
-%.o: %.c $(HEADER)
-	$(CC) $(FLAGS) -I . -c $<
-
 clean:
 	rm -f $(OFILES)
 

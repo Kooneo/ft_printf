@@ -12,12 +12,15 @@
 
 #include "ft_printf.h"
 
-void	ft_handle(const char *str, int index, int argc, va_list *ar)
+int ft_handle(const char *str, int index, int argc, va_list *ar)
 {
+	int count; 
+
+	count = 0;
 	if (argc)
 	{
 		if (ft_is_specifier(str, index, 'd'))
-			ft_printf_int(&ar);
+			ft_printf_int(&ar, &count);
 		if (ft_is_specifier(str, index, 'c'))
 			ft_printf_char(&ar);
 		if (ft_is_specifier(str, index, 's'))
@@ -29,13 +32,16 @@ void	ft_handle(const char *str, int index, int argc, va_list *ar)
 		// if (ft_is_specifier(str, index, 'X'))
 		//  adding more {'c', 's', 'p', 'd', 'i', 'u', 'x',  'X'}
 	}
+
+	return (count);
 }
 
-int	ft_printf(const char *s, ...)
+int ft_printf(const char *s, ...)
 {
-	va_list	ar;
-	int		index;
-	int		argc;
+	va_list ar;
+	int index;
+	int printed;
+	int argc;
 
 	va_start(ar, s);
 	index = 0;
@@ -44,7 +50,14 @@ int	ft_printf(const char *s, ...)
 	{
 		while (s[index] != '\0')
 		{
-			ft_putchar_fd(s[index], 1);
+
+			if (s[index] == '%' && is_valid_specifier(s[index + 1]))
+			{
+				ft_handle(s, index, argc, &ar);
+				index++;
+			}
+			else
+				ft_putchar_fd(s[index], 1);
 			index++;
 			// if (index > 0 && s[index] != '%' && s[index - 1] != '%')
 			// {
@@ -63,7 +76,7 @@ int	ft_printf(const char *s, ...)
 			// 	ft_putchar_fd(s[index], 1);
 			// 	index++;
 			// }
-			// else 
+			// else
 			// {
 			// 	ft_putchar_fd(s[index], 1);
 			// }
@@ -76,13 +89,18 @@ int	ft_printf(const char *s, ...)
 	return (index);
 }
 
-int	main(void)
+int main(void)
 {
 	// int	r;
 
 	// r = ft_printf("the output: %d is %d %c %t x g\n", 16, 25, 'X');
-	// // printf("ft_printf retuned value: %t\n", r);
-	ft_printf("Hi this me %c", 'a');
+
+	int rc = ft_printf("Hi this me %d\n", 265);
+	int ro = printf("Hi this me %d\n", 265 );
+
+
+	printf("return value from Mine: %d\n", rc);
+	printf("return value from orginal: %d\n", ro);
 
 	return (0);
 }

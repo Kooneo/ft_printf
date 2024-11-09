@@ -12,10 +12,37 @@
 
 #include "ft_printf.h"
 
-void	ft_printf_int(va_list **args)
+static size_t	ft_intlen(int n)
+{
+	size_t	i;
+
+	i = 0;
+	if (n == 0)
+		return (1);
+	if (n == 2147483647)
+		return (10);
+	if (n == -2147483648)
+		return (11);
+	if (n < 0)
+	{
+		n = -n;
+		i++;
+	}
+	while (n > 0)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i);
+}
+
+void	ft_printf_int(va_list **args, int *count)
 {
 	int i;
 
 	i = va_arg(**args, int);
-	ft_putnbr_fd(i, 1);
+	if (i) {
+		ft_putnbr_fd(i, 1);
+		*count = ft_intlen(i);
+	}
 }
