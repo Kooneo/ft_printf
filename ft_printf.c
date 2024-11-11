@@ -6,21 +6,22 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:10:42 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/09 15:15:24 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/11 21:48:05 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_handle(const char *str, int index, int argc, va_list *ar)
+int	ft_handle(const char *str, int index, int argc, va_list *ar)
 {
-	int count; 
+	int	count;
 
 	count = 0;
 	if (argc)
 	{
-		if (ft_is_specifier(str, index, 'd'))
-			ft_printf_int(&ar, &count);
+		if (ft_is_specifier(str, index, 'd') || ft_is_specifier(str, index,
+				'i'))
+			ft_printf_int(&ar);
 		if (ft_is_specifier(str, index, 'c'))
 			ft_printf_char(&ar);
 		if (ft_is_specifier(str, index, 's'))
@@ -32,16 +33,15 @@ int ft_handle(const char *str, int index, int argc, va_list *ar)
 		// if (ft_is_specifier(str, index, 'X'))
 		//  adding more {'c', 's', 'p', 'd', 'i', 'u', 'x',  'X'}
 	}
-
 	return (count);
 }
 
-int ft_printf(const char *s, ...)
+int	ft_printf(const char *s, ...)
 {
-	va_list ar;
-	int index;
-	int printed;
-	int argc;
+	va_list	ar;
+	int		index;
+	int		printed;
+	int		argc;
 
 	va_start(ar, s);
 	index = 0;
@@ -50,7 +50,6 @@ int ft_printf(const char *s, ...)
 	{
 		while (s[index] != '\0')
 		{
-
 			if (s[index] == '%' && is_valid_specifier(s[index + 1]))
 			{
 				ft_handle(s, index, argc, &ar);
@@ -89,18 +88,16 @@ int ft_printf(const char *s, ...)
 	return (index);
 }
 
-int main(void)
+int	main(void)
 {
+	int	rc;
+	int	ro;
+
 	// int	r;
-
 	// r = ft_printf("the output: %d is %d %c %t x g\n", 16, 25, 'X');
-
-	int rc = ft_printf("Hi this me %d\n", 265);
-	int ro = printf("Hi this me %d\n", 265 );
-
-
-	printf("return value from Mine: %d\n", rc);
-	printf("return value from orginal: %d\n", ro);
-
+	rc = ft_printf("Hi this me %d\n", 265);
+	ro = printf("Hi this me %d\n", 265);
+	// printf("return (value from Mine: %d\n", rc));
+	// printf("return (value from orginal: %d\n", ro));
 	return (0);
 }

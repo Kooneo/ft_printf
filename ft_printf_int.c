@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:50:48 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/06 20:40:47 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/11 21:44:18 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,12 @@ static size_t	ft_intlen(int n)
 	return (i);
 }
 
-void	ft_printf_int(va_list **args, int *count)
+void	ft_printf_int(va_list **args)
 {
 	int i;
 
 	i = va_arg(**args, int);
 	if (i) {
 		ft_putnbr_fd(i, 1);
-		*count = ft_intlen(i);
 	}
 }
