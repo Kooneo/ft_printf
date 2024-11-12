@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_printf_u_int.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 15:49:38 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/11 15:53:42 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/12 18:25:11 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/12 21:30:07 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_memset(void *str, int c, size_t n)
+static void	ft_putubr_fd(int n, int fd)
 {
-	size_t			i;
-	unsigned char	*s;
+	if (n < 0)
+		n = -n;
 
-	s = (unsigned char *)str;
-	i = 0;
-	while (i < n)
+	if (n >= 10)
 	{
-		s[i] = (unsigned char)c;
-		i++;
+		ft_putubr_fd(n / 10, fd);
+		ft_putubr_fd(n % 10, fd);
 	}
-	return (str);
+	else
+		ft_putchar_fd(n + '0', fd);
+
+}
+
+void	ft_printf_u_int(va_list **args)
+{
+	unsigned int i;
+
+	i = va_arg(**args, int);
+	ft_putubr_fd(i, 1);
 }

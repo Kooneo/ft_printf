@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_printf_i_int.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 15:49:38 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/11 15:53:42 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/12 18:22:47 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/12 18:26:04 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_memset(void *str, int c, size_t n)
+void	ft_printf_i_int(va_list **args)
 {
-	size_t			i;
-	unsigned char	*s;
+	int i;
 
-	s = (unsigned char *)str;
-	i = 0;
-	while (i < n)
+	i = va_arg(**args, int);
+	if (i)
 	{
-		s[i] = (unsigned char)c;
-		i++;
+		ft_putnbr_fd(i, 1);
 	}
-	return (str);
 }

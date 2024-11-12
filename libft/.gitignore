@@ -1,8 +1,0 @@
-*.o
-*.a
-main.c
-.vscode/
-.clang-format
-header.txt
-test/
-test/**/
