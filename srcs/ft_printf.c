@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putlstr.c                                       :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 16:57:19 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/12 16:57:21 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/13 17:18:07 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/14 15:48:43 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-int	ft_putlstr(const char *str)
+int	ft_printf(const char *s, ...)
 {
-	int	i;
+	va_list	args;
+	int		i;
+	int		count;
+	short	is_fail;
 
 	i = 0;
-	while (str[i] != '\0')
+	count = 0;
+	is_fail = 0;
+	va_start(args, s);
+	while (s[i])
 	{
-		ft_putchar_fd(str[i], 1);
+		if (s[i] == '%')
+		{
+			is_fail = handle_format(s[++i], args);
+			if (is_fail == -1)
+				return (-1);
+			else
+				count += is_fail;
+		}
+		else if (safe_write(&s[i], 1, &count) == -1)
+			return (-1);
 		i++;
 	}
-	return (i);
+	va_end(args);
+	return (count);
 }

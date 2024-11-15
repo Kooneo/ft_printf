@@ -1,17 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_specifier.c                                  :+:      :+:    :+:   */
+/*   handle_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 16:58:19 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/12 16:58:21 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/13 17:38:37 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/13 20:23:49 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/ft_printf.h"
 
-int	ft_is_specifier(const char *s, int index, char c)
+int	handle_char(va_list args)
 {
-	return (s[index + 1] == (char)c);
+	char	c;
+
+	c = va_arg(args, int);
+	return (write(1, &c, 1));
 }

@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_i_int.c                                  :+:      :+:    :+:   */
+/*   ft_safe_write.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 18:22:47 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/12 18:26:04 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/14 14:46:29 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/14 14:47:15 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-void	ft_printf_i_int(va_list **args)
+int	safe_write(const char *str, int len, int *count)
 {
-	int i;
+	int	result;
 
-	i = va_arg(**args, int);
-	if (i)
-	{
-		ft_putnbr_fd(i, 1);
-	}
+	result = write(1, str, len);
+	if (result == -1)
+		return (-1);
+	*count += result;
+	return (result);
 }

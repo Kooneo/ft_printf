@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_u_int.c                                  :+:      :+:    :+:   */
+/*   handle_hex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 18:25:11 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/12 21:30:07 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/13 17:37:00 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/14 15:52:13 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-static void	ft_putubr_fd(int n, int fd)
+int	handle_hex(va_list args, int uppercase)
 {
-	if (n < 0)
-		n = -n;
+	char			*base;
+	unsigned int	num;
 
-	if (n >= 10)
-	{
-		ft_putubr_fd(n / 10, fd);
-		ft_putubr_fd(n % 10, fd);
-	}
-	else
-		ft_putchar_fd(n + '0', fd);
-
-}
-
-void	ft_printf_u_int(va_list **args)
-{
-	unsigned int i;
-
-	i = va_arg(**args, int);
-	ft_putubr_fd(i, 1);
+	base = "0123456789abcdef";
+	if (uppercase)
+		base = "0123456789ABCDEF";
+	num = va_arg(args, unsigned int);
+	return (decimal_to_hex(base, num));
 }

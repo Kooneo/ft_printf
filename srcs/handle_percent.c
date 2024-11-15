@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_arg_in_s.c                                :+:      :+:    :+:   */
+/*   handle_percent.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 16:58:26 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/12 16:58:27 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/13 17:40:21 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/13 20:24:30 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/ft_printf.h"
 
-#include "ft_printf.h"
-
-int	count_arg_in_s(const char *s)
+int	handle_percent(void)
 {
-	int	count;
-	int	i;
-
-	count = 0;
-	i = 0;
-	if (!s)
-		return (count);
-	while (s[i] != '\0')
-	{
-		if (s[i] == '%')
-			count++;
-		i++;
-	}
-	return (count);
+	return (write(1, "%", 1));
 }
