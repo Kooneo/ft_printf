@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 18:06:29 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/23 16:02:26 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/23 18:18:54 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ int	ft_putubr(unsigned int n, int count)
 	return (count);
 }
 
-int	ft_puthex(char *base, unsigned long n, int count)
+int	ft_puthex(char *base, unsigned long n, int *count)
 {
 	if (n >= 16)
-		count = ft_puthex(base, n / 16, count);
-	if (safe_write(&base[n % 16], 1, &count) == -1)
+		*count = ft_puthex(base, n / 16, count);
+	if (safe_write(&base[n % 16], 1, count) == -1)
 		return (-1);
-	return (count);
+	return (*count);
 }
 
 int	decimal_to_hex(char *base, unsigned int num)
