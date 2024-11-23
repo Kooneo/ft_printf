@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:33:55 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/14 16:19:43 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/22 19:55:40 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ int	handle_format(char specifier, va_list args)
 		return (handle_hex(args, 0));
 	if (specifier == 'X')
 		return (handle_hex(args, 1));
+	if (specifier == '\0')
+			return (-1);
 	return (0);
 }

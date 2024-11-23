@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 18:31:19 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/14 12:46:19 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/23 13:14:15 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ int	handle_pointer(va_list args)
 	is_fail = 0;
 	p = va_arg(args, void *);
 	address = (uintptr_t)p;
-	is_fail = write(1, "0x", 2);
-	if (is_fail == -1)
+
+	if(safe_write("0x", 2, &i) == -1)
 		return (-1);
-	else
-		i += is_fail;
+
 	is_fail = ft_puthex("0123456789abcdef", address, 0);
 	if (is_fail == -1)
 		return (-1);

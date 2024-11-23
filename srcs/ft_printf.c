@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:18:07 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/14 15:48:43 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/23 13:33:36 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ int	ft_printf(const char *s, ...)
 	{
 		if (s[i] == '%')
 		{
+			while (s[i + 1] == ' ')
+				i++;
 			is_fail = handle_format(s[++i], args);
+			if (count == -1 )
+				break;
 			if (is_fail == -1)
 				return (-1);
 			else
