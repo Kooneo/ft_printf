@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_string.c                                    :+:      :+:    :+:   */
+/*   handle_pointer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 17:39:36 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/13 20:25:04 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/13 18:31:19 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/23 16:02:12 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-int	handle_string(va_list args)
+int	handle_pointer(va_list args)
 {
-	char	*str;
-	int		len;
+	int			i;
+	void		*p;
+	short		is_fail;
+	uintptr_t	address;
 
-	str = va_arg(args, char *);
-	if (!str)
-		return (write(1, "(null)", 6));
-	len = ft_strlen(str);
-	return (write(1, str, len));
+	i = 0;
+	is_fail = 0;
+	p = va_arg(args, void *);
+	address = (uintptr_t)p;
+
+	if(safe_write("0x", 2, &i) == -1)
+		return (-1);
+
+	is_fail = ft_puthex("0123456789abcdef", address, 0);
+	if (is_fail == -1)
+		return (-1);
+	else
+		i += is_fail;
+	return (i);
 }

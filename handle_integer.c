@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_char.c                                      :+:      :+:    :+:   */
+/*   handle_integer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 17:38:37 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/13 20:23:49 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/13 17:37:32 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/23 16:01:56 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-int	handle_char(va_list args)
+int	handle_integer(va_list args)
 {
-	char	c;
+	int	i;
 
-	c = va_arg(args, int);
-	return (write(1, &c, 1));
+	i = va_arg(args, int);
+	return (ft_putnbr(i, 0));
 }

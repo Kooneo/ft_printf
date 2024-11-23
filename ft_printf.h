@@ -6,14 +6,14 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:16:28 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/14 14:47:50 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/23 16:01:26 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "../libft/libft.h"
+# include "libft/libft.h"
 # include <stdarg.h>
 # include <stdint.h>
 # include <stdio.h>

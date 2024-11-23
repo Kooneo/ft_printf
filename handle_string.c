@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_hex.c                                       :+:      :+:    :+:   */
+/*   handle_string.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 17:37:00 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/14 15:52:13 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/13 17:39:36 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/23 16:02:16 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-int	handle_hex(va_list args, int uppercase)
+int	handle_string(va_list args)
 {
-	char			*base;
-	unsigned int	num;
+	char	*str;
+	int		len;
 
-	base = "0123456789abcdef";
-	if (uppercase)
-		base = "0123456789ABCDEF";
-	num = va_arg(args, unsigned int);
-	return (decimal_to_hex(base, num));
+	str = va_arg(args, char *);
+	if (!str)
+		return (write(1, "(null)", 6));
+	len = ft_strlen(str);
+	return (write(1, str, len));
 }

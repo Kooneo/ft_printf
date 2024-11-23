@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_numbers.c                                   :+:      :+:    :+:   */
+/*   handle_percent.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 17:37:32 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/13 20:24:23 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/13 17:40:21 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/23 16:02:01 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-int	handle_integer(va_list args)
+int	handle_percent(void)
 {
-	int	i;
-
-	i = va_arg(args, int);
-	return (ft_putnbr(i, 0));
+	return (write(1, "%", 1));
 }

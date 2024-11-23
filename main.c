@@ -6,11 +6,11 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 20:23:16 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/23 13:42:59 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/23 16:02:33 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/ft_printf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 #include <limits.h>
 
@@ -26,8 +26,12 @@ int	main(void)
 	// rc =  ft_printf("%s", (char *)NULL);
 	// ft_printf("%s", NULL);
 	// printf("%s", NULL);
-	ft_printf("%d %d\n", 42);
-	printf("%d %d\n", 42);
+	// ft_printf("%d %d\n", 42);
+	// printf("%p %p\n", LONG_MIN, LONG_MAX);
+	// ft_printf("%p %p\n", LONG_MIN, LONG_MAX);
+	// ft_printf("%10%\n");
+	ft_printf(3, "%d %d\n", 42);
+	// printf("%d %d\n", 42);
 	// printf("orginal: %d\n", &r);
 	// printf("%d", printf("%    p", &r));
 

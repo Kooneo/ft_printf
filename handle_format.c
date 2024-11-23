@@ -6,11 +6,11 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:33:55 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/22 19:55:40 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/23 16:01:46 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int	handle_format(char specifier, va_list args)
 {

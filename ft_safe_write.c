@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_unsigned.c                                  :+:      :+:    :+:   */
+/*   ft_safe_write.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 17:50:34 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/13 20:24:47 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/14 14:46:29 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/23 16:01:39 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-int	handle_unsigned(va_list args)
+int	safe_write(const char *str, int len, int *count)
 {
-	unsigned int	i;
+	int	result;
 
-	i = va_arg(args, unsigned int);
-	return (ft_putubr(i, 0));
+	result = write(1, str, len);
+	if (result == -1)
+		return (-1);
+	*count += result;
+	return (result);
 }

@@ -6,11 +6,11 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:42:54 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/14 15:52:04 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/23 16:01:32 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 static int	ft_putnbr_handle_negative(int *n, int *count)
 {

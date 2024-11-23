@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_percent.c                                   :+:      :+:    :+:   */
+/*   handle_unsigned.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 17:40:21 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/13 20:24:30 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/13 17:50:34 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/23 16:02:20 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-int	handle_percent(void)
+int	handle_unsigned(va_list args)
 {
-	return (write(1, "%", 1));
+	unsigned int	i;
+
+	i = va_arg(args, unsigned int);
+	return (ft_putubr(i, 0));
 }

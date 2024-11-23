@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_safe_write.c                                    :+:      :+:    :+:   */
+/*   handle_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 14:46:29 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/14 14:47:15 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/13 17:38:37 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/23 16:01:07 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-int	safe_write(const char *str, int len, int *count)
+int	handle_char(va_list args)
 {
-	int	result;
+	char	c;
 
-	result = write(1, str, len);
-	if (result == -1)
-		return (-1);
-	*count += result;
-	return (result);
+	c = va_arg(args, int);
+	return (write(1, &c, 1));
 }

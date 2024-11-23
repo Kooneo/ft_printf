@@ -6,11 +6,11 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 18:06:29 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/14 14:47:20 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/23 16:02:26 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_putubr(unsigned int n, int count)
 {

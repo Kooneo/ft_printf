@@ -6,7 +6,7 @@ LIBFT_NAME = libft.a
 CC = cc
 LIBFT_OFILES= $(LIBFT_DIR)/*.o
 CFLAGS = -Wall -Wextra -Werror 
-CFILES = $(filter-out main.c, $(wildcard ./srcs/*.c))
+CFILES = $(filter-out main.c, $(wildcard *.c))
 OFILES = $(CFILES:.c=.o)
 
 all: $(NAME)
