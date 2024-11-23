@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_hex.c                                       :+:      :+:    :+:   */
+/*   ft_decimal_to_hex.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 17:37:00 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/23 19:16:30 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/23 19:14:56 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/23 19:15:42 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	handle_hex(va_list args, int uppercase)
+int	ft_decimal_to_hex(char *base, unsigned int num)
 {
-	char			*base;
-	unsigned int	num;
+	char	hex[20];
+	int		i;
+	int		count;
 
-	base = "0123456789abcdef";
-	if (uppercase)
-		base = "0123456789ABCDEF";
-	num = va_arg(args, unsigned int);
-	return (ft_decimal_to_hex(base, num));
+	i = 0;
+	count = 0;
+	if (num == 0)
+	{
+		if (safe_write("0", 1, &count) == -1)
+			return (-1);
+		return (count);
+	}
+	while (num > 0)
+	{
+		hex[i] = base[num % 16];
+		num /= 16;
+		i++;
+	}
+	while (i > 0)
+	{
+		i--;
+		if (safe_write(&hex[i], 1, &count) == -1)
+			return (-1);
+	}
+	return (count);
 }

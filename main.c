@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 20:23:16 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/23 18:48:10 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/23 19:11:38 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	main(void)
 	// printf("%p %p\n", LONG_MIN, LONG_MAX);
 	// ft_printf("%p %p\n", LONG_MIN, LONG_MAX);
 	// ft_printf("%10%\n");
-	printf("%d\n", printf("%"));
-	printf("%d\n", ft_printf("%"));
 	// printf("orginal: %d\n", &r);
 	// printf("%d", printf("%    p", &r));
 

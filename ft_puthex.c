@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_hex.c                                       :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 17:37:00 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/23 19:16:30 by zbakour          ###   ########.fr       */
+/*   Created: 2024/11/23 19:14:21 by zbakour           #+#    #+#             */
+/*   Updated: 2024/11/23 19:14:41 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	handle_hex(va_list args, int uppercase)
+int	ft_puthex(char *base, unsigned long n, int *count)
 {
-	char			*base;
-	unsigned int	num;
-
-	base = "0123456789abcdef";
-	if (uppercase)
-		base = "0123456789ABCDEF";
-	num = va_arg(args, unsigned int);
-	return (ft_decimal_to_hex(base, num));
+	if (n >= 16)
+		*count = ft_puthex(base, n / 16, count);
+	if (safe_write(&base[n % 16], 1, count) == -1)
+		return (-1);
+	return (*count);
 }

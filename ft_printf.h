@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:16:28 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/23 18:11:18 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/23 19:15:52 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int	handle_percent(void);
 int	ft_putubr(unsigned int n, int count);
 int	ft_putnbr(int n, int count);
 int	ft_puthex(char *base, unsigned long n, int *count);
-int	decimal_to_hex(char *base, unsigned int num);
+int	ft_decimal_to_hex(char *base, unsigned int num);
 #endif
