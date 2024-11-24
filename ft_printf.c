@@ -6,23 +6,19 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:18:07 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/23 18:49:41 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/24 15:26:09 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *s, ...)
+static int	ft_printf_body(const char *s, va_list args, int *count)
 {
-	va_list	args;
 	int		i;
-	int		count;
 	short	is_fail;
 
 	i = 0;
-	count = 0;
 	is_fail = 0;
-	va_start(args, s);
 	while (s[i])
 	{
 		if (s[i] == '%')
@@ -33,12 +29,23 @@ int	ft_printf(const char *s, ...)
 			if (is_fail == -1)
 				return (-1);
 			else
-				count += is_fail;
+				*count += is_fail;
 		}
-		else if (safe_write(&s[i], 1, &count) == -1)
+		else if (safe_write(&s[i], 1, count) == -1)
 			return (-1);
 		i++;
 	}
+	return (*count);
+}
+
+int	ft_printf(const char *s, ...)
+{
+	va_list	args;
+	int		count;
+
+	count = 0;
+	va_start(args, s);
+	count = ft_printf_body(s, args, &count);
 	va_end(args);
 	return (count);
 }
