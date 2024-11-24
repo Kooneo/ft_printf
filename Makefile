@@ -1,34 +1,42 @@
-LIBRARY = ft_printf
-NAME = libftprintf.a
-LIBFT_DIR = ./libft
-LIBFT = $(LIBFT_DIR)/libft.a
-LIBFT_NAME = libft.a
 CC = cc
-LIBFT_OFILES= $(LIBFT_DIR)/*.o
 CFLAGS = -Wall -Wextra -Werror 
-CFILES = $(filter-out main.c, $(wildcard *.c))
+NAME = libftprintf.a
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
+
+CFILES = ft_printf.c \
+		ft_decimal_to_hex.c \
+		ft_puthex.c \
+		ft_putnbr.c \
+		ft_putubr.c \
+		ft_safe_write.c \
+		handle_char.c \
+		handle_format.c \
+		handle_hex.c \
+		handle_integer.c \
+		handle_percent.c \
+		handle_pointer.c \
+		handle_string.c \
+		handle_unsigned.c 
+
 OFILES = $(CFILES:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OFILES)
-	ar rcs $(NAME) $(OFILES) $(LIBFT_OFILES)
+	cp $(LIBFT) $(NAME)
+	ar rcs $(NAME) $(OFILES)
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
-	make bonus -C $(LIBFT_DIR)
 
 clean:
 	rm -f $(OFILES)
 	make -C $(LIBFT_DIR) clean
 
 fclean: clean
-	rm -f $(NAME) $(LIBFT_NAME)
-	make -C $(LIBFT_DIR)
-	make bonus -C $(LIBFT_DIR) fclean
-
-test: $(NAME) $(LIBFT)
-	cc main.c $(NAME) $(LIBFT) -o xx && ./xx
+	rm -f $(NAME)
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
