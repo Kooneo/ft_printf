@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 18:31:19 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/23 18:19:41 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/24 17:25:15 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	handle_pointer(va_list args)
 
 	count = 0;
 	p = va_arg(args, void *);
+	if (p == NULL)
+		return (write(1, "(nil)", 5));
 	address = (uintptr_t)p;
 	if (safe_write("0x", 2, &count) == -1)
 		return (-1);

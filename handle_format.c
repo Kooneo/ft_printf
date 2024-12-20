@@ -6,13 +6,13 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:33:55 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/23 18:27:35 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/29 18:48:56 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	handle_format(char specifier, va_list args)
+int	handle_format(char specifier, va_list args, int *count)
 {
 	if (specifier == 'c')
 		return (handle_char(args));
@@ -32,5 +32,10 @@ int	handle_format(char specifier, va_list args)
 		return (handle_hex(args, 1));
 	if (specifier == '\0')
 		return (-1);
+	else
+	{
+		safe_write("%", 1, count);
+		safe_write(&specifier, 1, count);
+	}
 	return (0);
 }

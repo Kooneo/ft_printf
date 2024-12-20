@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:16:28 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/23 19:15:52 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/29 18:44:38 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 int	safe_write(const char *str, int len, int *count);
 int	ft_putnbr(int n, int count);
 int	ft_printf(const char *s, ...);
-int	handle_format(char specifier, va_list args);
+int	handle_format(char specifier, va_list args, int *count);
 int	handle_char(va_list args);
 int	handle_string(va_list args);
 int	handle_pointer(va_list args);
